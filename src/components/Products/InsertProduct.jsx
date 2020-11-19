@@ -108,10 +108,18 @@ function InsertProduct(props) {
           animationIn: ["animate__animated", "animate__fadeIn"],
           animationOut: ["animate__animated", "animate__fadeOut"],
           dismiss: {
-            duration: 2000,
+            duration: 1500,
             onScreen: true
           }
-        })  
+        })
+        setAmount('');
+        setDescription('');
+        setImg('')
+        setLoading(false)
+        setTitle('')
+        setPrice('')
+        setSelectPicked('Chọn danh mục')
+        setSelectGroup('Chọn thể loại')
       }).catch(err => {
         console.log(err)
       })
