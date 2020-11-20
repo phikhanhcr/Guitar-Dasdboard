@@ -1,25 +1,12 @@
 import Axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Left from '../Left';
-import UpdateIcon from '../assets/icon-edit.svg'
-import DeleteIcon from '../assets/icon-trash-black.svg'
+
+import { ProductContext } from '../../ContextApi/ProductContext';
+import EachProduct from './EachProduct';
 
 function AllProducts(props) {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-
-    getData()
-  }, [])
-  async function getData() {
-    await Axios.get('http://localhost:3000/api/all-product')
-      .then(res => res.data)
-      .then(data => {
-        console.log(data)
-        setProducts(data)
-      }).catch(err => {
-        console.log(err)
-      })
-  }
+  const { allProducts } = useContext(ProductContext)
   return (
     <div className="wrapper">
       <div className="container">
@@ -47,18 +34,8 @@ function AllProducts(props) {
                     </thead>
                     <tbody>
                       {
-                        products.length && products.map((ele, index) => (
-                          <tr key={index}>
-                            <td data-label="STT">{index + 1}</td>
-                            <td data-label="Tên sản phẩm">{ele.name}</td>
-                            <td data-label="Hình ảnh"><img src={ele.img} alt="" /></td>
-                            <td data-label="Giá SP">{ele.price}</td>
-                            <td data-label="Đã bán">1</td>
-                            <td>{ele.numberInStock}</td>
-                            <td data-label="Thời gian">{ele.createAt}</td>
-                            <td data-label="Sửa" className="right__iconTable"><a href><img src={UpdateIcon} alt="" /></a></td>
-                            <td data-label="Xoá" className="right__iconTable"><a href><img src={DeleteIcon} alt="" /></a></td>
-                          </tr>
+                        allProducts.length && allProducts.map((ele, index) => (
+                         <EachProduct ele={ele} key={index}/>
                         ))
                       }
 

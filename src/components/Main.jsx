@@ -5,8 +5,15 @@ import TableOrder from './Table/TableOrder';
 import Left from './Left';
 import ArrowIcon from './assets/arrow-right.svg'
 import ViewIcon from './assets/arrow-right-black.svg'
+import { useContext, useEffect, useState } from 'react';
+import { CatalogsContext } from '../ContextApi/CatalogsContext';
+import { ProductContext } from '../ContextApi/ProductContext';
 function Main() {
 
+  const { allCatalogs } = useContext(CatalogsContext)
+  const { allProducts } = useContext(ProductContext)
+  console.log(allCatalogs)
+  
   return (
     <div className="wrapper">
       <div className="container">
@@ -19,7 +26,7 @@ function Main() {
               <div className="right__cards">
                 <a className="right__card" href="/product">
                   <div className="right__cardTitle">Sản Phẩm</div>
-                  <div className="right__cardNumber">72</div>
+                  <div className="right__cardNumber">{allProducts.length}</div>
                   <div className="right__cardDesc">Xem Chi Tiết <img src={ArrowIcon} alt="" />
                   </div>
                 </a>
@@ -31,7 +38,7 @@ function Main() {
                 </a>
                 <a className="right__card" href="/catalogs">
                   <div className="right__cardTitle">Danh Mục</div>
-                  <div className="right__cardNumber">4</div>
+                  <div className="right__cardNumber">{allCatalogs.length}</div>
                   <div className="right__cardDesc">Xem Chi Tiết <img src={ArrowIcon} alt="" />
                   </div>
                 </a>

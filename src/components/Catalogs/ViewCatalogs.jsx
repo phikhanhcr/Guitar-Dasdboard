@@ -1,14 +1,17 @@
-import React from 'react';
-
+import React, { useContext, useState } from 'react';
+import { CatalogsContext } from '../../ContextApi/CatalogsContext';
 import Left from '../Left';
-
+import EachCatalogs from './EachCatalogs';
 
 function ViewCatalogs(props) {
+  const { allCatalogs } = useContext(CatalogsContext)
+  
   return (
     <div className="wrapper">
       <div className="container">
         <div className="dashboard">
           <Left />
+        
           <div className="right">
             <div className="right__content">
               <div className="right__title">Bảng điều khiển</div>
@@ -20,26 +23,20 @@ function ViewCatalogs(props) {
                       <tr>
                         <th>STT</th>
                         <th>Tiêu đề</th>
-                        <th>Mô tả</th>
+                        <th>Ngày tạo</th>
                         <th>Sửa</th>
                         <th>Xoá</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td data-label="STT">1</td>
-                        <td data-label="Tiêu đề">Dress</td>
-                        <td data-label="Mô tả">Thiết kế nhẹ nhàng, trẻ trung và lãng đãng!</td>
-                        <td data-label="Sửa" className="right__iconTable"><a href><img src="assets/icon-edit.svg" alt="" /></a></td>
-                        <td data-label="Xoá" className="right__iconTable"><a href><img src="assets/icon-trash-black.svg" alt="" /></a></td>
-                      </tr>
-                      <tr>
-                        <td data-label="STT">2</td>
-                        <td data-label="Tiêu đề">Top + Skirt</td>
-                        <td data-label="Mô tả">Thiết kế nhẹ nhàng, trẻ trung và lãng đãng!</td>
-                        <td data-label="Sửa" className="right__iconTable"><a href><img src="assets/icon-edit.svg" alt="" /></a></td>
-                        <td data-label="Xoá" className="right__iconTable"><a href><img src="assets/icon-trash-black.svg" alt="" /></a></td>
-                      </tr>
+                      {
+                        allCatalogs.length && allCatalogs.map((ele, index) => (
+                          <EachCatalogs 
+                            ele={ele}
+                            key={index}
+                          />
+                        ))
+                      }
                     </tbody>
                   </table>
                 </div>
