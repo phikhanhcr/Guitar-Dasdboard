@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { MusicalInstrumentContext } from '../../ContextApi/MusicalInstrumentContext';
 import Left from '../Left';
+import EachInstrument from './EachInstrument';
 
 
 function ViewInstrument(props) {
+  const { allInstrument } = useContext(MusicalInstrumentContext);
+  console.log(allInstrument)
   return (
     <div class="wrapper">
       <div class="container">
@@ -19,26 +23,18 @@ function ViewInstrument(props) {
                       <tr>
                         <th>STT</th>
                         <th>Tiêu đề</th>
-                        <th>Mô tả</th>
+                        <th>Danh mục</th>
+                        <th>Ngày tạo</th>
                         <th>Sửa</th>
                         <th>Xoá</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td data-label="STT">1</td>
-                        <td data-label="Tiêu đề">Dress</td>
-                        <td data-label="Mô tả">Thiết kế nhẹ nhàng, trẻ trung và lãng đãng!</td>
-                        <td data-label="Sửa" className="right__iconTable"><a href><img src="assets/icon-edit.svg" alt="" /></a></td>
-                        <td data-label="Xoá" className="right__iconTable"><a href><img src="assets/icon-trash-black.svg" alt="" /></a></td>
-                      </tr>
-                      <tr>
-                        <td data-label="STT">2</td>
-                        <td data-label="Tiêu đề">Top + Skirt</td>
-                        <td data-label="Mô tả">Thiết kế nhẹ nhàng, trẻ trung và lãng đãng!</td>
-                        <td data-label="Sửa" className="right__iconTable"><a href><img src="assets/icon-edit.svg" alt="" /></a></td>
-                        <td data-label="Xoá" className="right__iconTable"><a href><img src="assets/icon-trash-black.svg" alt="" /></a></td>
-                      </tr>
+                      {
+                        allInstrument.length && allInstrument.map((ele, index) => (
+                          <EachInstrument ele={ele} key={index} index={index}/>
+                        ))
+                      }
                     </tbody>
                   </table>
                 </div>

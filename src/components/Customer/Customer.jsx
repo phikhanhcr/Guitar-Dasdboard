@@ -1,7 +1,16 @@
-import React from 'react';
+import Axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import Left from '../Left';
+import EachCustomer from './EachCustomer';
 
 function Customer(props) {
+  const [customer, setCustomer] = useState([]);
+  useEffect(() => {
+
+  }, [])
+  async function fetchData() {
+    await fetch('')
+  }
   return (
     <div class="wrapper">
       <div class="container">
@@ -26,15 +35,7 @@ function Customer(props) {
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td data-label="STT">1</td>
-                        <td data-label="Hình ảnh" style={{ textAlign: 'center' }}><img style={{ width: '50px', height: '50px', borderRadius: '100%', objectFit: 'cover' }} src="assets/profile1.jpg" alt="" /></td>
-                        <td data-label="Tên">dangthimydung</td>
-                        <td data-label="Email">dangthimydung@gmail.com</td>
-                        <td data-label="Phone">0836730193</td>
-                        <td data-label="Địa chỉ">Cà Mau</td>
-
-                      </tr>
+                     <EachCustomer />
 
                     </tbody>
                   </table>
