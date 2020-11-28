@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Left from '../Left';
-import deleteIcon from '../assets/icon-trash-black.svg'
-import checkIcon from '../assets/icon-check.svg'
+
+import { OrderListContext } from '../../ContextApi/OrderContext';
+import EachOrder from './EachOrder';
 function Order(props) {
+  const { allOrder } = useContext(OrderListContext)
   return (
     <div class="wrapper">
       <div class="container">
@@ -18,43 +20,22 @@ function Order(props) {
                     <thead>
                       <tr>
                         <th>STT</th>
-                        <th>Email</th>
-                        <th>Số hoá đơn</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Số lượng</th>
-                        <th>Kích cở</th>
-                        <th>Ngày</th>
-                        <th>Tổng</th>
-                        <th>Trạng thái</th>
-                        <th>Xoá</th>
-                        <th>Thanh toán</th>
+                        <th style={{ textAlign: 'left' }}>Email</th>
+                        <th>Họ Tên Khách Hàng</th>
+                        <th>Số Điện THoại</th>
+                        <th>Địa Chỉ</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Số Lượng</th>
+                        <th>Trạng Thái</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td data-label="STT">1</td>
-                        <td data-label="Email">chibaosinger@gmail.com</td>
-                        <td data-label="Số hoá đơn">337203544</td>
-                        <td data-label="Tên sản phẩm">Bata Dress</td>
-                        <td data-label="Số lượng">2</td>
-                        <td data-label="Kích cở">Nhỏ</td>
-                        <td data-label="Ngày">2020-07-13</td>
-                        <td data-label="Tổng">1.180.000 ₫</td>
-                        <td data-label="Trạng thái">
-                          <select>
-                            <option>Chờ xác nhận</option>
-                            <option>Đang giao</option>
-                            <option>Đã giao</option>
-                            <option>Đã Hủy</option>
-                          </select>
-                        </td>
-                        <td data-label="Xoá" className="right__iconTable"><a href><img src={deleteIcon} alt="" /></a></td>
-                        <td data-label="Thanh toán" className="right__confirm">
-                          <a href className="right__iconTable">
-                            <img src={checkIcon} alt="" /></a>
-                        </td>
-                      </tr>
-                     
+                      {
+                        allOrder.length && allOrder.map((ele, index) => (
+                          <EachOrder ele={ele} key={index} index={index}/>
+                        ))
+                      }
+
                     </tbody>
                   </table>
                 </div>

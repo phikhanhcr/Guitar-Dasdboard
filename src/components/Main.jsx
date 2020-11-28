@@ -8,11 +8,14 @@ import ViewIcon from './assets/arrow-right-black.svg'
 import { useContext, useEffect, useState } from 'react';
 import { CatalogsContext } from '../ContextApi/CatalogsContext';
 import { ProductContext } from '../ContextApi/ProductContext';
+import { OrderListContext } from '../ContextApi/OrderContext';
 function Main() {
 
   const { allCatalogs } = useContext(CatalogsContext)
   const { allProducts } = useContext(ProductContext)
-  console.log(allCatalogs)
+  const { allOrder, latestOrder } = useContext(OrderListContext)
+
+ 
   
   return (
     <div className="wrapper">
@@ -44,7 +47,7 @@ function Main() {
                 </a>
                 <a className="right__card" href="/order">
                   <div className="right__cardTitle">Đơn Hàng</div>
-                  <div className="right__cardNumber">72</div>
+                  <div className="right__cardNumber">{allOrder.length}</div>
                   <div className="right__cardDesc">Xem Chi Tiết <img src={ArrowIcon} alt="" />
                   </div>
                 </a>
@@ -52,7 +55,7 @@ function Main() {
               <d iv className="right__table">
                 <p className="right__tableTitle">Đơn hàng mới</p>
                 <div className="right__tableWrapper">
-                  <TableOrder />
+                  <TableOrder latestOrder={latestOrder}/>
                 </div>
                 <a href="/order" className="right__tableMore">
                   <p className="">Xem tất cả các đơn đặt hàng</p> <img src={ViewIcon} alt="" />
