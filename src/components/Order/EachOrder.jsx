@@ -9,14 +9,14 @@ function EachOrder({ ele, index }) {
   const [valueSelected, setValueSelected] = useState(ele.condition)
   const { userData } = useContext(UserContext)
 
-  const handleChangeValue = async e => {
+  const handleChangeValue = e => {
     console.log(ele)
     console.log(e.target.value)
     setValueSelected(e.target.value)
-    UpdateCondition(valueSelected)
+    UpdateCondition(e.target.value)
   }
   async function UpdateCondition(update) {
-    await Axios.put(`http://localhost:3000/api/admin-donhang/${ele.ownId}`, {
+    await Axios.put(`http://localhost:3000/api/admin-donhang/${ele._id}`, {
       condition: update
     }, {
       headers: { 'x-auth-token-admin': userData.tokenAdmin }

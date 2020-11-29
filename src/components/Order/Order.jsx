@@ -4,7 +4,9 @@ import Left from '../Left';
 import { OrderListContext } from '../../ContextApi/OrderContext';
 import EachOrder from './EachOrder';
 function Order(props) {
-  const { allOrder } = useContext(OrderListContext)
+  var { allOrder } = useContext(OrderListContext)
+  console.log(allOrder)
+ 
   return (
     <div class="wrapper">
       <div class="container">
