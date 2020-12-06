@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import UpdateIcon from '../assets/icon-edit.svg'
 import DeleteIcon from '../assets/icon-trash-black.svg'
 import Popup from '../Popup/PopupRemoveItem'
-function EachCatalogs({ ele }) {
+function EachCatalogs({ ele, index }) {
   const [show, setShow] = useState(false);
   const handleClose = () => {
     setShow(false);
@@ -24,7 +24,7 @@ function EachCatalogs({ ele }) {
         handleClose={handleClose}
         show={show}
       />
-      <td data-label="STT">{1}</td>
+      <td data-label="STT">{index + 1}</td>
       <td data-label="Tiêu đề">{ele.name}</td>
       <td>{ele.createAt}</td>
       <td data-label="Sửa" className="right__iconTable"><a href><img src={UpdateIcon} alt="" /></a></td>

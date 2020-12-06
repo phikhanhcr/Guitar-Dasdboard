@@ -3,7 +3,6 @@ import iconDashBoard from './assets/icon-dashboard.svg'
 import tagIcon from './assets/icon-tag.svg'
 import arrowDown from './assets/arrow-down.svg'
 import editIcon from './assets/icon-edit.svg'
-import iconSidle from './assets/icon-settings.svg'
 import iconUsers from './assets/icon-users.svg'
 import iconBook from './assets/icon-book.svg'
 import iconLogout from './assets/icon-logout.svg'
@@ -26,7 +25,7 @@ function Left(props) {
       <div className="left__content">
         <div className="left__logo">LOGO</div>
         <div className="left__profile">
-          <div className="left__image"><img src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/108178050_3246744535551196_6179540105876860380_o.jpg?_nc_cat=106&ccb=2&_nc_sid=8bfeb9&_nc_ohc=ry722gHO9qQAX8lJHb8&_nc_ht=scontent.fhan2-1.fna&oh=3d6e88c98bd1d2fd68027aeb084b906f&oe=5FC07786" alt="" /></div>
+          <div className="left__image"><img src="https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/124453310_3374158829476432_5841940573436874260_n.jpg?_nc_cat=102&ccb=2&_nc_sid=174925&_nc_ohc=oDyLjKzI7g0AX_yDKrO&_nc_ht=scontent.fhan2-1.fna&oh=122537b23f0ddfc963896277ca856fd0&oe=5FF33A17" alt="avatar" /></div>
           <p className="left__name">Phi Khanh Cr</p>
         </div>
         <ul className="left__menu">

@@ -13,3 +13,6 @@
 .display-none {
   display: none;
 }
+body {
+  background-color: rgb(179, 160, 196) !important;
+}

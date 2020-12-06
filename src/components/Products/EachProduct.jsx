@@ -5,7 +5,7 @@ import { ProductContext } from '../../ContextApi/ProductContext';
 import UpdateIcon from '../assets/icon-edit.svg'
 import DeleteIcon from '../assets/icon-trash-black.svg'
 import Popup from '../Popup/PopupRemoveItem'
-function EachProduct({ ele }) {
+function EachProduct({ ele, index }) {
   const { allProducts, setAllProducts } = useContext(ProductContext)
   const [show, setShow] = useState(false);
   const handleClose = () => {
@@ -60,7 +60,7 @@ function EachProduct({ ele }) {
         handleClose={handleClose}
         show={show}
       />
-      <td data-label="STT">{1}</td>
+      <td data-label="STT">{index + 1}</td>
       <td data-label="Tên sản phẩm">{ele.name}</td>
       <td data-label="Hình ảnh"><img src={ele.img} alt="" /></td>
       <td data-label="Giá SP">{ele.price}</td>

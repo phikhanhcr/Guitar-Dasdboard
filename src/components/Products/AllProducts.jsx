@@ -35,7 +35,7 @@ function AllProducts(props) {
                     <tbody>
                       {
                         allProducts.length && allProducts.map((ele, index) => (
-                         <EachProduct ele={ele} key={index}/>
+                         <EachProduct ele={ele} key={index} index={index}/>
                         ))
                       }
 

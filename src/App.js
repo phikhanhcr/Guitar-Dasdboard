@@ -49,7 +49,7 @@ function App() {
         headers: { 'x-auth-token-admin': userData.tokenAdmin }
       }).then(res => res.data)
         .then(data => {
-          console.log(data.length)
+          console.log(data)
           setAllOrder(data)
           setLatestOrder(data.sort((a, b) => a.createAt - b.createAt).slice(0, 3));
         }).catch(err => {

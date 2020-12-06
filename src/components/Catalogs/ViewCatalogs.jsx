@@ -34,6 +34,7 @@ function ViewCatalogs(props) {
                           <EachCatalogs 
                             ele={ele}
                             key={index}
+                            index={index}
                           />
                         ))
                       }
